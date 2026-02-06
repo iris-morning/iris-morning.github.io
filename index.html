@@ -3,120 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的时光轴</title>
+    <title>这三十年 | 我的时光轴</title>
     <style>
-        /* 这里是控制样式的部分 - 极简风 */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f9; /* 背景色 */
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 40px;
+        :root {
+            --bg-color: #fdfaf2; /* 宫崎骏式米白 */
+            --accent-green: #6b8e23; /* 森林绿 */
+            --accent-orange: #d2691e; /* 晚霞橙 */
+            --text-main: #4a4a4a;
         }
 
-        /* 时间轴的主干 */
+        body {
+            font-family: "STKaiti", "KaiTi", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 10px; }
+        .header p { font-size: 1.1rem; color: #888; }
+
         .timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        /* 那条竖线 */
+        /* 时间轴中线 */
         .timeline::after {
             content: '';
             position: absolute;
-            width: 4px;
-            background-color: #ddd;
-            top: 0;
-            bottom: 0;
-            left: 50px; /* 线的位置 */
-            margin-left: -2px;
+            width: 2px;
+            background: #e0dcd0;
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -1px;
         }
 
-        /* 每一个时间节点的盒子 */
         .container {
             padding: 10px 40px;
             position: relative;
-            background-color: inherit;
-            width: 100%;
+            width: 50%;
             box-sizing: border-box;
         }
 
-        /* 时间点上的圆点 */
+        /* 左右分布 */
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        /* 圆点装饰 */
         .container::after {
-            content: '';
+            content: '✨';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -17px;
-            background-color: white;
-            border: 4px solid #FF9F55; /* 圆点的颜色 */
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            left: 36px;
+            width: 20px; height: 20px;
+            right: -14px; top: 20px;
+            z-index: 1; font-size: 14px;
+        }
+        .right::after { left: -10px; }
+
+        .content {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #f0ede5;
+            transition: 0.3s;
         }
 
-        /* 内容框框 */
-        .content {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        .content:hover { transform: translateY(-5px); }
 
         .date {
+            color: var(--accent-orange);
             font-weight: bold;
-            color: #FF9F55;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
             display: block;
+            margin-bottom: 10px;
         }
 
-        /* 手机适配 */
+        .story-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+            /* 自动切除底部的AI水印代码 */
+            aspect-ratio: 1 / 1; 
+            object-fit: cover;
+            object-position: top;
+        }
+
         @media screen and (max-width: 600px) {
             .timeline::after { left: 31px; }
-            .container { padding-left: 70px; padding-right: 25px; }
-            .container::after { left: 17px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
+            .right { left: 0; }
+            .container::after { left: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>我的时间胶囊 ⏳</h1>
+    <div class="header">
+        <h1>这三十年 ⏳</h1>
+        <p>记录那些在时光里闪亮的日子</p>
+    </div>
 
     <div class="timeline">
 
-        <div class="container">
+        <div class="container right">
             <div class="content">
-                <span class="date">2024年 至今</span>
-                <h2>探索与思考</h2>
-                <p>我开始想要搭建一个属于自己的网站，整理过去的经历。虽然觉得自己没有什么惊天动地的成果，但我想记录下生活的点滴。</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="content">
-                <span class="date">2020年</span>
-                <h2>迷茫与尝试</h2>
-                <p>这一年其实发生了很多事（比如疫情），我在家自学了一些乱七八糟的技能，虽然没成专家，但挺有意思的。</p>
+                <span class="date">1997年</span>
+                <h3>生命的起点：和田</h3>
+                <p>我出生在新疆和田的一个县医院里。那时候的和田还很落后，那天天气很冷，妈妈抱着刚出生的我躺在病床上。虽然南方的城市很少下雪，但常常会有遮天蔽日的沙尘暴。</p>
+                <img src="1997.png" class="story-img" alt="1997出生">
             </div>
         </div>
 
-        <div class="container">
-            <div class="content">
-                <span class="date">199X年</span>
-                <h2>Hello World</h2>
-                <p>我出生了！这是故事的开始。</p>
-            </div>
         </div>
-
-    </div>
 
 </body>
 </html>
