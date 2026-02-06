@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>这三十年 | 我的时光轴</title>
+    <title>这三十年 | My Thirty Years</title>
     <style>
         :root {
             --bg-color: #fdfaf2;
             --accent-color: #8b7d6b;
             --text-color: #4a4a4a;
+            --en-text-color: #7d7d7d;
             --line-color: #d1c7bc;
         }
 
@@ -35,6 +36,13 @@
             letter-spacing: 5px;
         }
 
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            color: var(--en-text-color);
+            font-style: italic;
+        }
+
         .timeline {
             position: relative;
             max-width: 1000px;
@@ -59,7 +67,6 @@
             background-color: inherit;
             width: 50%;
             box-sizing: border-box;
-            /* 手机端动画优化 */
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.8s ease-out forwards;
@@ -101,16 +108,30 @@
             font-size: 1.4rem;
             border-bottom: 1px dashed var(--line-color);
             padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        /* 图片容器，解决加载时的跳动问题 */
+        .content p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .content .en {
+            font-size: 0.85rem;
+            color: var(--en-text-color);
+            font-style: italic;
+            line-height: 1.4;
+            display: block;
+            margin-top: 8px;
+        }
+
         .img-container {
             width: 100%;
             margin-top: 15px;
-            background-color: #eee; /* 图片未加载时的占位色 */
+            background-color: #eee;
             border-radius: 8px;
             overflow: hidden;
-            min-height: 200px; /* 给大图留出预估空间 */
+            min-height: 200px;
         }
 
         .story-img {
@@ -118,7 +139,6 @@
             height: auto;
             display: block;
             object-fit: cover;
-            /* 关键：平滑过渡效果 */
             transition: opacity 0.5s;
         }
 
@@ -128,9 +148,17 @@
             margin: 80px auto;
             padding: 40px 20px;
             border-top: 2px solid var(--line-color);
-            font-size: 1.3rem;
-            color: #5d5449;
-            letter-spacing: 2px;
+        }
+
+        .future-quote p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .future-quote .en {
+            font-size: 1rem;
+            color: var(--en-text-color);
+            font-style: italic;
         }
 
         @media screen and (max-width: 768px) {
@@ -146,14 +174,15 @@
 
     <div class="header">
         <h1>这三十年</h1>
-        <p>每一个脚印，都通向更好的自己</p>
+        <p>A Journey of Thirty Years: Every step leads to a better self.</p>
     </div>
 
     <div class="timeline">
         <div class="container left">
             <div class="content">
-                <h2>1997 · 生命的起点</h2>
+                <h2>1997 · 始于南疆</h2>
                 <p>1997年，我在南疆出生。那时候的冬天很冷，妈妈爸爸辛苦啦。</p>
+                <span class="en">Born in Southern Xinjiang, 1997. The winters back then were biting cold. Thank you, Mom and Dad, for everything.</span>
                 <div class="img-container">
                     <img src="1997.png.jpg" class="story-img" loading="lazy">
                 </div>
@@ -164,6 +193,7 @@
             <div class="content">
                 <h2>2001 · “一分钟”约定</h2>
                 <p>上幼儿园了，分离焦虑让我每天嚎哭。我时常伸出食指对着母亲：意思是，你一分钟以后就要来接我。</p>
+                <span class="en">Starting kindergarten with terrible separation anxiety. I’d cry every day, holding up a finger to my mom—a silent plea for her to come back for me in just "one minute."</span>
                 <div class="img-container">
                     <img src="2001.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -172,8 +202,9 @@
 
         <div class="container left">
             <div class="content">
-                <h2>2003 · 第一张满分卷</h2>
+                <h2>2003 · 满分卷与木屑香</h2>
                 <p>小学第一次期末考了100分。父亲在做木工，身边满是木屑，我骄傲地向他展示我的成绩。</p>
+                <span class="en">My first perfect score in elementary school. I remember the smell of fresh wood shavings as my father worked on his carpentry, and the pride I felt showing him that 100.</span>
                 <div class="img-container">
                     <img src="2003.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -182,8 +213,9 @@
 
         <div class="container right">
             <div class="content">
-                <h2>2009 · 烈日与尘土</h2>
+                <h2>2009 · 尘土飞扬的青春</h2>
                 <p>初中的太阳很晒，学校里到处是土路，环形跑道很破旧。那是汗水与尘土交织的青春。</p>
+                <span class="en">Junior high was marked by a scorching sun and dusty dirt tracks. The school was worn down, but it was there that my youth began to unfold amidst sweat and dust.</span>
                 <div class="img-container">
                     <img src="2009.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -192,8 +224,9 @@
 
         <div class="container left">
             <div class="content">
-                <h2>2012 · 炸串与试卷</h2>
+                <h2>2012 · 炸串与物理题</h2>
                 <p>在市里念高中。记得校门口香气扑鼻的炸串，也记得那张总也考不及格、让人头疼的物理试卷。</p>
+                <span class="en">High school in the city. The nostalgia of sizzling street food at the school gate mixed with the headache of physics exams I could never quite pass.</span>
                 <div class="img-container">
                     <img src="2012.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -202,8 +235,9 @@
 
         <div class="container right">
             <div class="content">
-                <h2>2015 · 遇见南方</h2>
+                <h2>2015 · 梦里的江南</h2>
                 <p>去南方水乡念大学。满眼郁郁葱葱，空气湿润，建筑温婉。这里的一切对我来说都是新鲜的。</p>
+                <span class="en">Heading south for college. A world of lush greenery, humid air, and elegant architecture. Everything felt so incredibly fresh and full of wonder.</span>
                 <div class="img-container">
                     <img src="2015.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -212,8 +246,9 @@
 
         <div class="container left">
             <div class="content">
-                <h2>2019 · 雪夜的奋斗</h2>
+                <h2>2019 · 孤独的攀登者</h2>
                 <p>2019年，在乌鲁木齐工作。面对看不完的图纸和表格，在厚雪覆盖的寒冬，我经常买打折蔬菜，一个人咬牙坚持考下了一级造价工程师证。</p>
+                <span class="en">Back in Urumqi for work. Endless blueprints and spreadsheets under a blanket of heavy winter snow. Living on discounted groceries, I pushed through the solitude to earn my Class 1 Cost Engineer certification.</span>
                 <div class="img-container">
                     <img src="2019.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -224,6 +259,7 @@
             <div class="content">
                 <h2>2022 · 杭州的AB面</h2>
                 <p>杭州滋养了我，有西湖徒步的欢愉，也有高压加班和独自做肠胃镜时难以忘记的孤独。</p>
+                <span class="en">Hangzhou nourished my soul. I found joy in hiking by the West Lake with friends, yet I also endured the crushing weight of overtime and the unforgettable loneliness of undergoing a gastroscopy all by myself.</span>
                 <div class="img-container">
                     <img src="2022.jpg.png" class="story-img" loading="lazy">
                 </div>
@@ -233,11 +269,13 @@
 
     <div class="future-quote">
         <p>“现在，我还在不断地发掘自己，”</p>
+        <span class="en">"Even now, I am still discovering who I am,"</span>
         <p><strong>“也许我有更多潜力？”</strong></p>
+        <span class="en">"Perhaps I have so much more potential than I ever imagined?"</span>
     </div>
 
     <div style="text-align: center; padding-bottom: 50px; opacity: 0.3; font-size: 0.8rem;">
-        &copy; 我的三十年时光轴
+        &copy; My Thirty Years Journey
     </div>
 
 </body>
