@@ -6,122 +6,209 @@
     <title>这三十年 | 我的时光轴</title>
     <style>
         :root {
-            --bg-color: #fdfaf2; /* 宫崎骏式米白 */
-            --accent-green: #6b8e23; /* 森林绿 */
-            --accent-orange: #d2691e; /* 晚霞橙 */
-            --text-main: #4a4a4a;
+            --bg-color: #fdfaf2;
+            --accent-color: #8b7d6b;
+            --text-color: #4a4a4a;
+            --line-color: #d1c7bc;
         }
 
         body {
-            font-family: "STKaiti", "KaiTi", "Microsoft YaHei", sans-serif;
+            font-family: "STKaiti", "KaiTi", "Microsoft YaHei", serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color);
             margin: 0;
-            padding: 40px 20px;
-            line-height: 1.6;
+            padding: 0;
+            line-height: 1.8;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #e8e2d6, var(--bg-color));
         }
 
-        .header h1 { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 10px; }
-        .header p { font-size: 1.1rem; color: #888; }
+        .header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: #5d5449;
+            letter-spacing: 5px;
+        }
 
         .timeline {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        /* 时间轴中线 */
         .timeline::after {
             content: '';
             position: absolute;
             width: 2px;
-            background: #e0dcd0;
-            top: 0; bottom: 0; left: 50%;
+            background-color: var(--line-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
             margin-left: -1px;
         }
 
         .container {
             padding: 10px 40px;
             position: relative;
+            background-color: inherit;
             width: 50%;
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s forwards;
         }
 
-        /* 左右分布 */
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; text-align: left; }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* 圆点装饰 */
+        .left { left: 0; }
+        .right { left: 50%; }
+
         .container::after {
-            content: '✨';
+            content: '';
             position: absolute;
-            width: 20px; height: 20px;
-            right: -14px; top: 20px;
-            z-index: 1; font-size: 14px;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: white;
+            border: 3px solid var(--accent-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
         }
-        .right::after { left: -10px; }
+
+        .right::after { left: -8px; }
 
         .content {
-            background: white;
-            padding: 20px;
+            padding: 25px;
+            background-color: white;
+            position: relative;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid #f0ede5;
-            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .content:hover { transform: translateY(-5px); }
-
-        .date {
-            color: var(--accent-orange);
-            font-weight: bold;
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 10px;
+        .content h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            border-bottom: 1px dashed var(--line-color);
+            padding-bottom: 10px;
         }
 
         .story-img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 8px;
+            display: block;
             margin-top: 15px;
-            /* 自动切除底部的AI水印代码 */
-            aspect-ratio: 1 / 1; 
             object-fit: cover;
-            object-position: top;
         }
 
-        @media screen and (max-width: 600px) {
+        .future-quote {
+            text-align: center;
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px 20px;
+            border-top: 2px solid var(--line-color);
+            font-size: 1.3rem;
+            color: #5d5449;
+            letter-spacing: 2px;
+        }
+
+        @media screen and (max-width: 768px) {
             .timeline::after { left: 31px; }
-            .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
-            .right { left: 0; }
-            .container::after { left: 18px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container::after { left: 21px; }
+            .right { left: 0%; }
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>这三十年 ⏳</h1>
-        <p>记录那些在时光里闪亮的日子</p>
+        <h1>这三十年</h1>
+        <p>每一个脚印，都通向更好的自己</p>
     </div>
 
     <div class="timeline">
-
-        <div class="container right">
+        <div class="container left">
             <div class="content">
-                <span class="date">1997年</span>
-                <h3>生命的起点：和田</h3>
-                <p>我出生在新疆和田的一个县医院里。那时候的和田还很落后，那天天气很冷，妈妈抱着刚出生的我躺在病床上。虽然南方的城市很少下雪，但常常会有遮天蔽日的沙尘暴。</p>
-                <img src="1997.png.jpg" class="story-img" alt="1997出生">
+                <h2>1997 · 生命的起点</h2>
+                <p>1997年，我在南疆出生。那时候的冬天很冷，妈妈爸爸辛苦啦。</p>
+                <img src="1997.png.jpg" class="story-img">
             </div>
         </div>
 
+        <div class="container right">
+            <div class="content">
+                <h2>2001 · “一分钟”约定</h2>
+                <p>上幼儿园了，分离焦虑让我每天嚎哭。我时常伸出食指对着母亲：意思是，你一分钟以后就要来接我。</p>
+                <img src="2001.jpg.png" class="story-img">
+            </div>
         </div>
+
+        <div class="container left">
+            <div class="content">
+                <h2>2003 · 第一张满分卷</h2>
+                <p>小学第一次期末考了100分。父亲在做木工，身边满是木屑，我骄傲地向他展示我的成绩。</p>
+                <img src="2003.jpg.png" class="story-img">
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <h2>2009 · 烈日与尘土</h2>
+                <p>初中的太阳很晒，学校里到处是土路，环形跑道很破旧。那是汗水与尘土交织的青春。</p>
+                <img src="2009.jpg.png" class="story-img">
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <h2>2012 · 炸串与试卷</h2>
+                <p>在市里念高中。记得校门口香气扑鼻的炸串，也记得那张总也考不及格、让人头疼的物理试卷。</p>
+                <img src="2012.jpg.png" class="story-img">
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <h2>2015 · 遇见南方</h2>
+                <p>去南方水乡念大学。满眼郁郁葱葱，空气湿润，建筑温婉。这里的一切对我来说都是新鲜的。</p>
+                <img src="2015.jpg.png" class="story-img">
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <h2>2019 · 雪夜的奋斗</h2>
+                <p>2019年，在乌鲁木齐工作。面对看不完的图纸和表格，在厚雪覆盖的寒冬，我经常买打折蔬菜，一个人咬牙坚持考下了一级造价工程师证。</p>
+                <img src="2019.jpg.png" class="story-img">
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <h2>2022 · 杭州的AB面</h2>
+                <p>杭州滋养了我，有西湖徒步的欢愉，也有高压加班和独自做肠胃镜时难以忘记的孤独。</p>
+                <img src="2022.jpg.png" class="story-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="future-quote">
+        <p>“现在，我还在不断地发掘自己，”</p>
+        <p><strong>“也许我有更多潜力？”</strong></p>
+    </div>
+
+    <div style="text-align: center; padding-bottom: 50px; opacity: 0.3; font-size: 0.8rem;">
+        &copy; 我的三十年时光轴
+    </div>
 
 </body>
 </html>
