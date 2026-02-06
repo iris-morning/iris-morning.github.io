@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的时光轴</title>
+    <style>
+        /* 这里是控制样式的部分 - 极简风 */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f9; /* 背景色 */
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        /* 时间轴的主干 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 那条竖线 */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #ddd;
+            top: 0;
+            bottom: 0;
+            left: 50px; /* 线的位置 */
+            margin-left: -2px;
+        }
+
+        /* 每一个时间节点的盒子 */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 时间点上的圆点 */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #FF9F55; /* 圆点的颜色 */
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            left: 36px;
+        }
+
+        /* 内容框框 */
+        .content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .date {
+            font-weight: bold;
+            color: #FF9F55;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* 手机适配 */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container { padding-left: 70px; padding-right: 25px; }
+            .container::after { left: 17px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>我的时间胶囊 ⏳</h1>
+
+    <div class="timeline">
+
+        <div class="container">
+            <div class="content">
+                <span class="date">2024年 至今</span>
+                <h2>探索与思考</h2>
+                <p>我开始想要搭建一个属于自己的网站，整理过去的经历。虽然觉得自己没有什么惊天动地的成果，但我想记录下生活的点滴。</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <span class="date">2020年</span>
+                <h2>迷茫与尝试</h2>
+                <p>这一年其实发生了很多事（比如疫情），我在家自学了一些乱七八糟的技能，虽然没成专家，但挺有意思的。</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <span class="date">199X年</span>
+                <h2>Hello World</h2>
+                <p>我出生了！这是故事的开始。</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
