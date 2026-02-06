@@ -19,6 +19,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
         .header {
@@ -58,9 +59,10 @@
             background-color: inherit;
             width: 50%;
             box-sizing: border-box;
+            /* 手机端动画优化 */
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.8s forwards;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         @keyframes fadeIn {
@@ -101,12 +103,23 @@
             padding-bottom: 10px;
         }
 
+        /* 图片容器，解决加载时的跳动问题 */
+        .img-container {
+            width: 100%;
+            margin-top: 15px;
+            background-color: #eee; /* 图片未加载时的占位色 */
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 200px; /* 给大图留出预估空间 */
+        }
+
         .story-img {
             width: 100%;
-            border-radius: 8px;
+            height: auto;
             display: block;
-            margin-top: 15px;
             object-fit: cover;
+            /* 关键：平滑过渡效果 */
+            transition: opacity 0.5s;
         }
 
         .future-quote {
@@ -125,6 +138,7 @@
             .container { width: 100%; padding-left: 70px; padding-right: 25px; }
             .container::after { left: 21px; }
             .right { left: 0%; }
+            .header h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -140,7 +154,9 @@
             <div class="content">
                 <h2>1997 · 生命的起点</h2>
                 <p>1997年，我在南疆出生。那时候的冬天很冷，妈妈爸爸辛苦啦。</p>
-                <img src="1997.png.jpg" class="story-img">
+                <div class="img-container">
+                    <img src="1997.png.jpg" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -148,7 +164,9 @@
             <div class="content">
                 <h2>2001 · “一分钟”约定</h2>
                 <p>上幼儿园了，分离焦虑让我每天嚎哭。我时常伸出食指对着母亲：意思是，你一分钟以后就要来接我。</p>
-                <img src="2001.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2001.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -156,7 +174,9 @@
             <div class="content">
                 <h2>2003 · 第一张满分卷</h2>
                 <p>小学第一次期末考了100分。父亲在做木工，身边满是木屑，我骄傲地向他展示我的成绩。</p>
-                <img src="2003.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2003.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -164,7 +184,9 @@
             <div class="content">
                 <h2>2009 · 烈日与尘土</h2>
                 <p>初中的太阳很晒，学校里到处是土路，环形跑道很破旧。那是汗水与尘土交织的青春。</p>
-                <img src="2009.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2009.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -172,7 +194,9 @@
             <div class="content">
                 <h2>2012 · 炸串与试卷</h2>
                 <p>在市里念高中。记得校门口香气扑鼻的炸串，也记得那张总也考不及格、让人头疼的物理试卷。</p>
-                <img src="2012.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2012.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -180,7 +204,9 @@
             <div class="content">
                 <h2>2015 · 遇见南方</h2>
                 <p>去南方水乡念大学。满眼郁郁葱葱，空气湿润，建筑温婉。这里的一切对我来说都是新鲜的。</p>
-                <img src="2015.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2015.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -188,7 +214,9 @@
             <div class="content">
                 <h2>2019 · 雪夜的奋斗</h2>
                 <p>2019年，在乌鲁木齐工作。面对看不完的图纸和表格，在厚雪覆盖的寒冬，我经常买打折蔬菜，一个人咬牙坚持考下了一级造价工程师证。</p>
-                <img src="2019.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2019.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -196,7 +224,9 @@
             <div class="content">
                 <h2>2022 · 杭州的AB面</h2>
                 <p>杭州滋养了我，有西湖徒步的欢愉，也有高压加班和独自做肠胃镜时难以忘记的孤独。</p>
-                <img src="2022.jpg.png" class="story-img">
+                <div class="img-container">
+                    <img src="2022.jpg.png" class="story-img" loading="lazy">
+                </div>
             </div>
         </div>
     </div>
